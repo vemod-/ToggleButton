@@ -26,24 +26,24 @@ void QToggleButton::paintEvent(QPaintEvent* /*event*/)
 
         if (isChecked() || isDown()) p.drawRoundedRect(backRect.translated(1,1),5,5);
         else p.drawRoundedRect(backRect.translated(3,3),5,5);
-        p.setBrush(QColor("#111"));
+        p.setBrush(QColor(0x11,0x11,0x11));
         p.drawRoundedRect(backRect,5,5);
-        if (isChecked() || isDown()) p.setBrush(QColor("#555"));
-        else p.setBrush(QColor("#AAA"));
+        if (isChecked() || isDown()) p.setBrush(QColor(0x55,0x55,0x55));
+        else p.setBrush(QColor(0xaa,0xaa,0xaa));
         p.drawRoundedRect(backRect.adjusted(1,1,-1,-1),5,5);
 
         QLinearGradient lg(0,backRect.top()+2,0,backRect.bottom()-1);
         if (isChecked() || isDown())
         {
-            lg.setColorAt(0,"#444");
-            lg.setColorAt(0.4,"#332");
-            lg.setColorAt(0.8,"#111");
+            lg.setColorAt(0,QColor(0x44,0x44,0x44));
+            lg.setColorAt(0.4,QColor(0x33,0x33,0x22));
+            lg.setColorAt(0.8,QColor(0x11,0x11,0x11));
         }
         else
         {
-            lg.setColorAt(0,"#555");
-            lg.setColorAt(0.4,"#444");
-            lg.setColorAt(0.8,"#222");
+            lg.setColorAt(0,QColor(0x55,0x55,0x55));
+            lg.setColorAt(0.4,QColor(0x44,0x44,0x44));
+            lg.setColorAt(0.8,QColor(0x22,022,0x22));
         }
 
         p.setBrush(lg);
@@ -54,14 +54,14 @@ void QToggleButton::paintEvent(QPaintEvent* /*event*/)
         p.setBrush(Qt::NoBrush);
         if (isChecked() || isDown())
         {
-            p.setPen("#660");
+            p.setPen(QColor(0x66,0x66,0));
             p.drawText(backRect,text(),QTextOption(Qt::AlignCenter));
-            p.setPen("#FFFF80");
+            p.setPen(QColor(0xFF,0xFF,0x80));
             p.drawText(backRect.translated(-1,-1),text(),QTextOption(Qt::AlignCenter));
         }
         else
         {
-            p.setPen("#EEE");
+            p.setPen(QColor(0xee,0xee,0xee));
             p.drawText(backRect,text(),QTextOption(Qt::AlignCenter));
         }
     }
@@ -86,36 +86,36 @@ void QToggleButton::paintEvent(QPaintEvent* /*event*/)
             p.drawRoundedRect(ButtonRect.translated(3,3),3,3);
         }
 
-        p.setBrush(QColor("#111"));
+        p.setBrush(QColor(0x11,0x11,0x11));
         p.drawRoundedRect(ButtonRect,3,3);
 
         if (isDown())
         {
-            p.setBrush(QColor("#999"));
+            p.setBrush(QColor(0x99,0x99,0x9));
         }
         else
         {
             if (isChecked())
             {
                 QLinearGradient lg(ButtonRect.left()+1,0,ButtonRect.right()-1,0);
-                lg.setColorAt(0.1,"#DDD");
-                lg.setColorAt(0.5,"#FFFFA0");
-                lg.setColorAt(0.9,"#DDD");
+                lg.setColorAt(0.1,QColor(0xdd,0xdd,0xdd));
+                lg.setColorAt(0.5,QColor(0xFF,0xFF,0xA0));
+                lg.setColorAt(0.9,QColor(0xdd,0xdd,0xdd));
                 p.setBrush(lg);
 
             }
             else
             {
-                p.setBrush(QColor("#DDD"));
+                p.setBrush(QColor(QColor(0xdd,0xdd,0xdd)));
             }
         }
         p.drawRoundedRect(ButtonRect.adjusted(1,1,-1,-1),3,3);
 
         QLinearGradient lg(0,ButtonRect.top()+2,0,ButtonRect.bottom()-1);
-        lg.setColorAt(0,"#888");
-        lg.setColorAt(0.1,"#333");
-        lg.setColorAt(0.4,"#222");
-        lg.setColorAt(0.8,"#000");
+        lg.setColorAt(0,QColor(0x8,0x88,0x88));
+        lg.setColorAt(0.1,QColor(0x33,0x33,0x33));
+        lg.setColorAt(0.4,QColor(0x22,0x22,0x22));
+        lg.setColorAt(0.8,Qt::black);
         p.setBrush(lg);
         p.drawRoundedRect(ButtonRect.adjusted(1,2,-1,-1),3,3);
 
@@ -123,18 +123,18 @@ void QToggleButton::paintEvent(QPaintEvent* /*event*/)
         p.drawEllipse(LedPoint+QPointF(1,1),height()/12,height()/12);
         if (isChecked())
         {
-            p.setBrush(QColor("#FFFF80"));
+            p.setBrush(QColor(0xFF,0xFF,0x80));
         }
         else
         {
-            p.setBrush(QColor("#333"));
+            p.setBrush(QColor(0x33,0x33,0x33));
         }
         p.drawEllipse(LedPoint,height()/12,height()/12);
 
         p.setBrush(Qt::NoBrush);
         p.setPen(Qt::white);
         p.drawText(TextRect.translated(0,-1),text(),QTextOption(Qt::AlignCenter));
-        p.setPen("#000");
+        p.setPen(Qt::black);
         p.drawText(TextRect,text(),QTextOption(Qt::AlignCenter));
 
     }
