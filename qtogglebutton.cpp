@@ -14,9 +14,7 @@ QToggleButton::QToggleButton(QWidget *parent)
 void QToggleButton::paintEvent(QPaintEvent* /*event*/)
 {
     QPainter p(this);
-    p.setRenderHint(QPainter::SmoothPixmapTransform);
-    p.setRenderHint(QPainter::Antialiasing);
-    p.setRenderHint(QPainter::TextAntialiasing);
+    p.setRenderHints(QPainter::SmoothPixmapTransform | QPainter::Antialiasing | QPainter::TextAntialiasing);
     p.setPen(Qt::NoPen);
     p.setBrush(QColor(0,0,0,80));
 
